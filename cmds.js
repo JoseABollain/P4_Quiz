@@ -112,7 +112,7 @@ exports.testCmd = (rl, id) => {
 					biglog('Incorrecta', 'red');
 					rl.prompt();
 				}
-			})
+			});
 		} catch (error) {
 			errorlog(error.message);
 			rl.prompt();
