@@ -159,7 +159,7 @@ exports.playCmd = rl => {
 
 exports.creditsCmd = rl => {
 	log('Autores de la práctica:');
-    log('José Antonio Bollaín González', 'green');
+    log('JOSE ANTONIO BOLLAIN', 'green');
     rl.prompt();
 };
 
