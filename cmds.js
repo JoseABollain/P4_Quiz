@@ -156,12 +156,10 @@ exports.testCmd = (rl, id) => {
 		return makeQuestion(rl, `¿${quiz.question}?`)
 		.then(a => {
 			if (quiz.answer.toLowerCase().trim() === a.toLowerCase().trim()) {
-				console.log('Su respuesta es correcta.');
-				//biglog('Correcta', 'green');
+				log('Su respuesta es correcta.');
 				rl.prompt();
 			} else {
-				console.log('Su respuesta es incorrecta.');
-				//biglog('Incorrecta', 'red');
+				log('Su respuesta es incorrecta.');
 				rl.prompt();
 			}
 		});
@@ -201,8 +199,7 @@ exports.playCmd = rl => {
 	})
 	const PlayOne = () => {
 		if (toBeResolved.length === 0) {
-			console.log(`No hay nada más que preguntar. Fin del examen. Aciertos: ${score}`);
-			//biglog(`${score}`, 'magenta');
+			log(`No hay nada más que preguntar. Fin del examen. Aciertos: ${score}`);
 			rl.prompt();
 		} else {
 			let posicion = Math.round(Math.random() * (toBeResolved.length - 1));
@@ -212,12 +209,11 @@ exports.playCmd = rl => {
 				.then(a => {
 					if (quiz.answer.toLowerCase().trim() === a.toLowerCase().trim()) {
 						score += 1;
-						console.log(`Respuesta correcta. Lleva ${score} aciertos.`);
+						log(`Respuesta correcta. Lleva ${score} aciertos.`);
 						toBeResolved.splice(posicion, 1);
 						PlayOne();
 					} else {
-						console.log(`Respuesta incorrecta. Fin del examen. Aciertos: ${score}`);
-						//biglog(`${score}`, 'magenta');
+						log(`Respuesta incorrecta. Fin del examen. Aciertos: ${score}`);
 						rl.prompt();
 					}
 				});
