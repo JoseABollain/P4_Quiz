@@ -156,10 +156,10 @@ exports.testCmd = (rl, id) => {
 		return makeQuestion(rl, `¿${quiz.question}?`)
 		.then(a => {
 			if (quiz.answer.toLowerCase().trim() === a.toLowerCase().trim()) {
-				log('CORRECTO.');
+				log('Su respuesta es correcta.');
 				rl.prompt();
 			} else {
-				log('INCORRECTO.');
+				log('Su respuesta es incorrecta.');
 				rl.prompt();
 			}
 		});
@@ -183,7 +183,7 @@ exports.playCmd = rl => {
 	models.quiz.findAll()
 	.then(quizzes => {
 		for (let i = 0; i < quizzes.length; ++i) {
-			toBeResolved[i] = quizzes[i].id;
+			toBeResolved[i] = quizzes[i];
 		}
 		PlayOne();
 	})
@@ -203,22 +203,19 @@ exports.playCmd = rl => {
 			rl.prompt();
 		} else {
 			let posicion = Math.round(Math.random() * (toBeResolved.length - 1));
-			models.quiz.findById(toBeResolved[posicion])
-			.then(quiz => {
-				return makeQuestion(rl, `¿${quiz.question}?`)
-				.then(a => {
-					if (quiz.answer.toLowerCase().trim() === a.toLowerCase().trim()) {
-						score += 1;
-						log(`CORRECTO. Lleva ${score} aciertos.`);
-						toBeResolved.splice(posicion, 1);
-						PlayOne();
-					} else {
-						log(`INCORRECTO. Fin del examen. Aciertos: ${score}`);
-						rl.prompt();
-					}
-				});
-			})			
-		}
+			return makeQuestion(rl, `¿${toBeResolved[posicion].question}?`)
+			.then(a => {
+				if (toBeResolved[posicion].answer.toLowerCase().trim() === a.toLowerCase().trim()) {
+					score++;
+					log(`Respuesta correcta. Lleva ${score} aciertos.`);
+					toBeResolved.splice(posicion, 1);
+					PlayOne();
+				} else {
+					log(`Respuesta incorrecta. Fin del examen. Aciertos: ${score}`);
+					rl.prompt();
+				}
+			});
+		}		
 	}
 };
 
