@@ -157,11 +157,11 @@ exports.testCmd = (rl, id) => {
 		.then(a => {
 			if (quiz.answer.toLowerCase().trim() === a.toLowerCase().trim()) {
 				log('Su respuesta es correcta.');
-				biglog('Correcta', 'green');
+				//biglog('Correcta', 'green');
 				rl.prompt();
 			} else {
 				log('Su respuesta es incorrecta.');
-				biglog('Incorrecta', 'red');
+				//biglog('Incorrecta', 'red');
 				rl.prompt();
 			}
 		});
@@ -203,7 +203,7 @@ exports.playCmd = rl => {
 		if (toBeResolved.length === 0) {
 			log('No hay nada más que preguntar.');
 			log('Fin del examen. Aciertos:');
-			biglog(`${score}`, 'magenta');
+			//biglog(`${score}`, 'magenta');
 			rl.prompt();
 		} else {
 			let posicion = Math.round(Math.random() * (toBeResolved.length - 1));
