@@ -203,7 +203,7 @@ exports.playCmd = rl => {
 		if (toBeResolved.length === 0) {
 			log('No hay nada más que preguntar.');
 			log(`Fin del examen. Aciertos: ${score}`);
-			//biglog(`${score}`, 'magenta');
+			biglog(`${score}`, 'magenta');
 			rl.prompt();
 		} else {
 			let posicion = Math.round(Math.random() * (toBeResolved.length - 1));
@@ -219,7 +219,7 @@ exports.playCmd = rl => {
 					} else {
 						log('INCORRECTO.');
 						log(`Fin del examen. Aciertos: ${score}`);
-						//biglog(`${score}`, 'magenta');
+						biglog(`${score}`, 'magenta');
 						rl.prompt();
 					}
 				});
