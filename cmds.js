@@ -212,11 +212,11 @@ exports.playCmd = rl => {
 				.then(a => {
 					if (quiz.answer.toLowerCase().trim() === a.toLowerCase().trim()) {
 						score += 1;
-						log(`CORRECTO - Lleva ${score} aciertos.`);
+						log(`Respuesta correcta. Lleva ${score} aciertos.`);
 						toBeResolved.splice(posicion, 1);
 						PlayOne();
 					} else {
-						log(`INCORRECTO - Fin del examen. Aciertos: ${score}`);
+						console.log(`Respuesta incorrecta. Fin del examen. Aciertos: ${score}`);
 						//biglog(`${score}`, 'magenta');
 						rl.prompt();
 					}
