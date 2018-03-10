@@ -156,10 +156,10 @@ exports.testCmd = (rl, id) => {
 		return makeQuestion(rl, `¿${quiz.question}?`)
 		.then(a => {
 			if (quiz.answer.toLowerCase().trim() === a.toLowerCase().trim()) {
-				log('Su respuesta es correcta.');
+				log('CORRECTO.');
 				rl.prompt();
 			} else {
-				log('Su respuesta es incorrecta.');
+				log('INCORRECTO.');
 				rl.prompt();
 			}
 		});
@@ -209,11 +209,11 @@ exports.playCmd = rl => {
 				.then(a => {
 					if (quiz.answer.toLowerCase().trim() === a.toLowerCase().trim()) {
 						score += 1;
-						log(`Respuesta correcta. Lleva ${score} aciertos.`);
+						log(`CORRECTO. Lleva ${score} aciertos.`);
 						toBeResolved.splice(posicion, 1);
 						PlayOne();
 					} else {
-						log(`Respuesta incorrecta. Fin del examen. Aciertos: ${score}`);
+						log(`INCORRECTO. Fin del examen. Aciertos: ${score}`);
 						rl.prompt();
 					}
 				});
