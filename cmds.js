@@ -201,9 +201,8 @@ exports.playCmd = rl => {
 	})
 	const PlayOne = () => {
 		if (toBeResolved.length === 0) {
-			log('No hay nada más que preguntar.');
-			log(`Fin del examen. Aciertos: ${score}`);
-			biglog(`${score}`, 'magenta');
+			log(`No hay nada más que preguntar. Fin del examen. Aciertos: ${score}`);
+			//biglog(`${score}`, 'magenta');
 			rl.prompt();
 		} else {
 			let posicion = Math.round(Math.random() * (toBeResolved.length - 1));
@@ -217,9 +216,8 @@ exports.playCmd = rl => {
 						toBeResolved.splice(posicion, 1);
 						PlayOne();
 					} else {
-						log('INCORRECTO.');
-						log(`Fin del examen. Aciertos: ${score}`);
-						biglog(`${score}`, 'magenta');
+						log(`INCORRECTO - Fin del examen. Aciertos: ${score}`);
+						//biglog(`${score}`, 'magenta');
 						rl.prompt();
 					}
 				});
