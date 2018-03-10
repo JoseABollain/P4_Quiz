@@ -218,8 +218,8 @@ exports.playCmd = rl => {
 						PlayOne();
 					} else {
 						log('INCORRECTO.');
-						log('Fin del examen. Aciertos:');
-						biglog(`${score}`, 'magenta');
+						log(`Fin del examen. Aciertos: ${score}`);
+						//biglog(`${score}`, 'magenta');
 						rl.prompt();
 					}
 				});
