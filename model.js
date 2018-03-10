@@ -11,7 +11,14 @@ sequelize.define('quiz', {
 	answer: {
 		type: Sequelize.STRING,
 		validate: {notEmpty: {msg: "La respuesta no puede estar vacía"}}
-	}
+	},
+	id: {type: Sequelize.INTEGER,
+		unique: {msg: "Ya existe esta id"},
+		validate: {notEmpty: {msg: "La id no puede estar vacía"}},
+		primaryKey: true
+	},
+	createdAt: Sequelize.DATE,
+	updatedAt: Sequelize.DATE
 });
 
 sequelize.sync()
