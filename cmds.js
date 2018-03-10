@@ -202,7 +202,7 @@ exports.playCmd = rl => {
 	const PlayOne = () => {
 		if (toBeResolved.length === 0) {
 			log('No hay nada más que preguntar.');
-			log('Fin del examen. Aciertos:');
+			log(`Fin del examen. Aciertos: ${score}`);
 			//biglog(`${score}`, 'magenta');
 			rl.prompt();
 		} else {
